@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import multer from 'multer';
+import cors from 'cors';
 
 import { registrationValidation } from './validation/auth.js';
 import { loginValidation } from './validation/login.js';
@@ -16,6 +17,7 @@ connect('mongodb+srv://Admin:wwwwww@cluster0.qai7e.mongodb.net/blog?retryWrites=
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 app.use('/uploads', express.static('uploads'));
 
 const storage = multer.diskStorage({
